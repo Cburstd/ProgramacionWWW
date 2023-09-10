@@ -9,7 +9,7 @@ export const ContactoPage = () => {
         <div className='page'>
             <h1 className='page__title'>Hamlin Hamlin & McGill</h1>
             <NavBar />
-            <h2>Su caso es importante para nosotros</h2>
+            <h2>Su caso ES TILO</h2>
             <img src={contacto} height={200} alt='imgen de contacto' /><br />
             <br />
             <Button variant='contained'>Llame a una sucursal</Button>

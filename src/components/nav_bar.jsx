@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import BasicDropdown from './dropdown'
 
 export const NavBar = () => {
   return (
@@ -14,26 +15,29 @@ export const NavBar = () => {
         className={({ isActive }) => `nav-bar__link ${isActive ? 'nav-bar__link--active' : ''}`}
         to='/internal'
       >
-        Página Interna
+        Catálogo
+        
       </NavLink>
-      <NavLink
-        className={({ isActive }) => `nav-bar__link ${isActive ? 'nav-bar__link--active' : ''}`}
-        to='/reuniones'
-      >
-        Sobre nosotros
-      </NavLink>
-      <NavLink
-        className={({ isActive }) => `nav-bar__link ${isActive ? 'nav-bar__link--active' : ''}`}
-        to='/soontm'
-      >
-        Asesorias legales
-      </NavLink>
+      
+      <BasicDropdown/>
+
+      
       <NavLink
         className={({ isActive }) => `nav-bar__link ${isActive ? 'nav-bar__link--active' : ''}`}
         to='/contacto'
       >
         Contacto
       </NavLink>
+
+
+      <NavLink
+        className={({ isActive }) => `nav-bar__link ${isActive ? 'nav-bar__link--active' : ''}`}
+        to='/soontm'
+      >
+        Perfil
+      </NavLink>
+      
+      
     </nav>
   )
 }

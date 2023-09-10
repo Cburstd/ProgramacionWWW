@@ -5,7 +5,7 @@ import NavBar from '../components/nav_bar'
 import pronto from '../assets/soon.png'
 import BasicExample from '../components/form'
 
-export const ReunionPage = () => {
+export const PrestamoPage = () => {
   return (
     <div className='page'>
       <h1 className='page__title'>Hamlin Hamlin & McGill</h1>
@@ -22,4 +22,4 @@ export const ReunionPage = () => {
   )
 }
 
-export default ReunionPage
+export default PrestamoPage
