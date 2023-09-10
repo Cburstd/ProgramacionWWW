@@ -1,15 +1,25 @@
+.container{
+  border-bottom: #6f88c6 2px solid;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .nav{
   font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
 }
-.p-3 {
-  padding: 1rem !important;
+
+.link-dark{
+  color: #253357;
+  text-decoration: none;
 }
-.mb-3 {
-  margin-bottom: 1rem !important;
-}
-.border-bottom {
-  border-bottom: 1px solid #dee2e6 !important;
-}
-*, ::after, ::before {
-  box-sizing: border-box;
+
+.form-control{
+  background-color: #ffffff;
+  font-size: 1.2rem;
+  border-color: #6f88c6;
+  
 }

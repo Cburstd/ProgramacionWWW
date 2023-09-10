@@ -8,7 +8,6 @@ import NavBar from '../components/nav_bar'
 export const AnalisisPage3 = () => {
   return (
     <div className='page'>
-      <h1 className='page__title'>Hamlin Hamlin & McGill</h1>
       <NavBar />
       <h2>Analisis de reunión</h2>
       <div className='anal'>

@@ -7,7 +7,6 @@ import LogoUSM from '../assets/saul.png'
 export const InternalPage = () => {
   return (
     <div className='page'>
-      <h1 className='page__title'>Hamlin Hamlin & McGill</h1>
       <NavBar />
       <h2>Página Interna</h2>
       <img src={LogoUSM} height={100} alt='logo usm' /><br />

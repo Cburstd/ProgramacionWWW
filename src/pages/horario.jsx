@@ -7,7 +7,6 @@ import NavBar from '../components/nav_bar'
 export const HorarioPage = () => {
     return (
       <div className='page'>
-        <h1 className='page__title'>Hamlin Hamlin and McGill</h1>
         <NavBar />
         <div className='contentContainer padding'>
           <h3>Agendar reunión</h3>
