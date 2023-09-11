@@ -98,8 +98,7 @@ function Navbar({ userType = 'client' }) {
               <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle" />
             </a>
             <ul className="dropdown-menu text-small" aria-labelledby="dropdownUser">
-              <li><a className="dropdown-item" href="/perfil">Mi Perfil</a></li>
-              <li><a className="dropdown-item" href="/config">Configuraci&oacute;n</a></li>
+              <li><a className="dropdown-item" href="/mi-perfil">Mi Perfil</a></li>
               <li><hr className="dropdown-divider" /></li>
               <li><a className="dropdown-item" href="/salir">Salir</a></li>
             </ul>

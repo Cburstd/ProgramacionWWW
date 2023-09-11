@@ -6,6 +6,18 @@ import "../components/horario/style.css"
 import NavBar from '../components/nav_bar'
 
 export const Perfil = () => {
+
+  const user = {
+    nombre: 'Nombre del Usuario',
+    correo: 'usuario@example.com',
+    contraseña: '********',
+    telefono: '1234567890',
+    direccion: 'Calle 123, Colonia, Ciudad, Estado',
+    carrera: 'Ingeniería en Computación',
+    semestre: '8',
+    rol: 'Cliente',
+  };
+
   return (
     <div className='page'>
       <div className="d-flex align-items-center">
@@ -17,19 +29,19 @@ export const Perfil = () => {
 
       <div className="container">
         <div className="row">
-          <div className="col-4">
+          <div className="col-6">
             <img src={LogoUser} className="img-fluid" />
           </div>
-          <div className="col-8">
+          <div className="col-6">
             <div className="card-body text-end">
-              <h5 className="card-title">Nombre</h5>
-              <p className="card-text">Correo</p>
-              <p className="card-category">Contraseña</p>
-              <p className="card-category">Telefono</p>
-              <p className="card-category">Dirección</p>
-              <p className="card-category">Carrera</p>
-              <p className="card-category">Semestre</p>
-              <p className="card-category">Rol</p>
+              <p><strong>Nombre:</strong> {user.nombre}</p>
+              <p><strong>Correo Electrónico:</strong> {user.correo}</p>
+              <p><strong>Contraseña:</strong> {user.contraseña}</p>
+              <p><strong>Teléfono:</strong> {user.telefono}</p>
+              <p><strong>Dirección:</strong> {user.direccion}</p>
+              <p><strong>Carrera:</strong> {user.carrera}</p>
+              <p><strong>Semestre:</strong> {user.semestre}</p>
+              <p><strong>Rol:</strong> {user.rol}</p>
             </div>
           </div>
         </div>

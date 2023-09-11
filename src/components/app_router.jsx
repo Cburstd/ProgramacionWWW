@@ -32,7 +32,7 @@ const AppRouter = () => {
         <Route path='/menuanalisis' element={<MenuAnalisisPage />} />
         <Route path='/Analisis' element={<AnalisisPage />} />
         <Route path='/Analisis2' element={<AnalisisPage2 />} />
-        <Route path='/perfil' element={<Perfil />} />
+        <Route path='/mi-perfil' element={<Perfil />} />
         <Route path='/catalogo' element={<Catalogo />} />
       </Routes>
     </BrowserRouter>
