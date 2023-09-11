@@ -9,14 +9,12 @@ import { Carousel } from 'react-bootstrap'*/}
 export const HomePage = () => {
   return (
     <div className='page'>
-      <h1 className='page__title'>Hamlin Hamlin & McGill</h1>
+      <div className="d-flex align-items-center">
+        <img src={Logocomp} alt='Logo' className='logo' />
+        <h1 className='page__title'>HHM</h1>
+      </div>
       <NavBar />
       <h2>Página de Inicio</h2>
-      <SideNav />
-      <img src={Logocomp} height={300} alt='logo usm' /><br />
-      <br />
-      <div>Bienvenido(a) al exitoso bufete de abogados <i>Hamlin Hamlin & McGill</i></div>
-      {/*<UncontrolledExample />*/}
     </div>
     
   )

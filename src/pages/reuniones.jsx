@@ -8,7 +8,6 @@ import BasicExample from '../components/form'
 export const ReunionPage = () => {
   return (
     <div className='page'>
-      <h1 className='page__title'>Hamlin Hamlin & McGill</h1>
       <NavBar />
       <h2>Sobre nosotros</h2>
       <img src={pronto} height={200} alt='logo usm' /><br />

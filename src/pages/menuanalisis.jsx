@@ -7,7 +7,6 @@ import { Button} from 'react-bootstrap';
 export const MenuAnalisisPage = () => {
   return (
     <div className='page'>
-      <h1 className='page__title'>Hamlin Hamlin & McGill</h1>
       <NavBar />
       <h2>Reuniones pasadas</h2>
       <div className='columnasdobles'>
