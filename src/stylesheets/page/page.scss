@@ -1,10 +1,76 @@
 .page {
   background: #ffffff;
-  padding: 20px;
-  margin: 20px;
+  margin: 2% 5% 2% 5%;
 }
 
-.img {
+.carousel-image {
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
   width: 100%;
-  height: 10%;
+  height: 80vh;
+  margin: 0 auto;
 }
+
+.container-fluid {
+  padding-top: 2vh;
+  width: 100%;
+  height: 100%;
+}
+
+.card{
+  background-color: #e8effe;
+  border-color: #e8effe;
+  border-radius: 2vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.card img{
+  margin-top: 2vh;
+}
+
+.card p {
+  justify-content: center;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.filter-button{
+  background-color: #6f88c6;
+  border-color: #6f88c6;
+  color: #ffffff;
+  margin: 2%;
+}
+
+.col-lg-2{
+  margin-top: 3%;
+  margin-bottom: 0%;
+  margin-left: 5%;
+}
+
+.filter-buttons{
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: left;
+  border: #6f88c6 2px solid;
+  border-radius: 2vh;
+}
+
+.cards-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+  align-items: right;
+}
+
+.card-item{
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  max-width: 100%; 
+  height: auto;
+}
+

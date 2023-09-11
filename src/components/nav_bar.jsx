@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
-function Navbar({ userType = 'coordinador' }) {
+function Navbar({ userType = 'client' }) {
   return (
     <div className="container ">
       <div className="d-flex flex-wrap">
@@ -98,10 +98,10 @@ function Navbar({ userType = 'coordinador' }) {
               <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle" />
             </a>
             <ul className="dropdown-menu text-small" aria-labelledby="dropdownUser">
-              <li><a className="dropdown-item" href="#">Mi Perf&iacute;l</a></li>
-              <li><a className="dropdown-item" href="#">Configuraci&oacute;n</a></li>
+              <li><a className="dropdown-item" href="/perfil">Mi Perfil</a></li>
+              <li><a className="dropdown-item" href="/config">Configuraci&oacute;n</a></li>
               <li><hr className="dropdown-divider" /></li>
-              <li><a className="dropdown-item" href="#">Salir</a></li>
+              <li><a className="dropdown-item" href="/salir">Salir</a></li>
             </ul>
           </div>
         </div>
