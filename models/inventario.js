@@ -10,4 +10,4 @@ const inventarioSchema = new mongoose.Schema( {
 
 });
 
-module.exports = mongoose.model('inventario', inventarioSchema)
+module.exports = mongoose.model('Inventario', inventarioSchema)

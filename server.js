@@ -63,10 +63,10 @@ const typeDefs = gql`
 
  type Prestamo{
     id: ID!
-    usuarioId: ID!
-    inventarioId: ID!
-    fecha_prestamo: Date!
-    fecha_devolucion: Date
+    usuario: Usuario!
+    inventario: Inventario!
+    fecha_prestamo: String!
+    fecha_devolucion: String
     detalle_prestamo: String
     cantidad_solicitada: Int!
     estado: Int!
@@ -92,6 +92,16 @@ const typeDefs = gql`
     popularidad: Int!
  }
 
+ input PrestamoInput {
+    usuario: String!
+    inventario: String!
+    fecha_prestamo: String!
+    fecha_devolucion: String
+    detalle_prestamo: String
+    cantidad_solicitada: Int!
+    estado: Int!
+ }
+
  type Query {
     getUsuarios: [Usuario]
     getUsuario(id: ID!) : Usuario
@@ -108,6 +118,8 @@ const typeDefs = gql`
     addTipoProductoInventario(input: InventarioInput): Inventario
     updateProductoInventario(id: ID!, input: InventarioInput): Inventario
     deleteInventario(id: ID!) : Alert
+
+    addPrestamo(input: PrestamoInput): Prestamo
  }
 `;
 
@@ -162,7 +174,25 @@ const resolvers = {
             return{
                 message: "Inventario eliminado"
             }
-        }
+        },
+
+        async addPrestamo(obj, { input }){
+            let inventarioBusq = Inventario.findById(input.inventario);
+            if(inventarioBusq==null){
+                return null;
+            }
+            let usuarioBusq = Usuario.findById(input.usuario);
+            if(usuarioBusq==null){
+                return null;
+            }
+            const prestamo = new Prestamo(
+                {usuario: usuarioBusq._id,
+                inventario: inventarioBusq._id,
+                fecha_prestamo: input.fecha_prestamo,
+                fecha_devolucion: input.fecha_devolucion, detalle_prestamo: input.detalle_prestamo, cantidad_solicitada: input.cantidad_solicitada, estado: input.estado});
+            await prestamo.save();
+            return prestamo;
+        },
     }
 }
 

@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 const prestamoSchema = new mongoose.Schema( {
-    usuarioId: {
+    usuario: {
         type: Schema.Types.ObjectId,
-        ref: 'usuario',
+        ref: 'Usuario',
         required: true
     },
-    inventarioId: {
+    inventario: {
         type: Schema.Types.ObjectId,
-        ref: 'inventario',
+        ref: 'Inventario',
         required: true
       },
     fecha_prestamo: Date,
@@ -19,4 +19,4 @@ const prestamoSchema = new mongoose.Schema( {
     estado: Number
 });
 
-module.exports = mongoose.model('prestamo', prestamoSchema)
+module.exports = mongoose.model('Prestamo', prestamoSchema)

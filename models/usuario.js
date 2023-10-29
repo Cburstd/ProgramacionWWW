@@ -13,4 +13,4 @@ const usuarioSchema = new mongoose.Schema( {
     n_solicitudes_validadas: Number
 });
 
-module.exports = mongoose.model('usuario', usuarioSchema)
+module.exports = mongoose.model('Usuario', usuarioSchema)
