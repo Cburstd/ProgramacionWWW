@@ -1,22 +1,21 @@
 const mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-const devolucionesSchema = new mongoose.Schema( {
-    usuarioId: {
+const devolucionSchema = new mongoose.Schema( {
+    usuario: {
         type: Schema.Types.ObjectId,
-        ref: 'usuario',
+        ref: 'Usuario',
         required: true
     },
-    inventarioId: {
+    inventario: {
         type: Schema.Types.ObjectId,
-        ref: 'inventario',
+        ref: 'Inventario',
         required: true
-    },
+      },
     fecha_prestamo: Date,
     fecha_devolucion: Date,
     detalle_devolucion: String,
-    cantidad_devuelta: Number
-
-
+    cantidad_devuelta: Number,
 });
 
-module.exports = mongoose.model('devoluciones', devolucionesSchema)
+module.exports = mongoose.model('Devolucion',devolucionSchema)

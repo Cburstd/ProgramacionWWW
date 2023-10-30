@@ -13,6 +13,7 @@ const Usuario = require('./models/usuario');
 const Inventario = require('./models/inventario');
 const Prestamo = require('./models/prestamos');
 const Solicitud = require('./models/solicitudes');
+const Devolucion = require('./models/devoluciones');
 
 mongoose.connect('mongodb+srv://User:UserPassword@cluster0.5pyuiq8.mongodb.net/bdwebmovil', {useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -83,6 +84,16 @@ const typeDefs = gql`
     estado: Int!
  }
 
+ type Devolucion{
+    id: ID!
+    usuario: Usuario!
+    inventario: Inventario!
+    fecha_prestamo: String!
+    fecha_devolucion: String!
+    detalle_devolucion: String
+    cantidad_devuelta: Int!
+ }
+
  type Alert{
     message: String
  }
@@ -122,6 +133,15 @@ const typeDefs = gql`
     estado: Int!
  }
 
+ input DevolucionInput {
+    usuario: String!
+    inventario: String!
+    fecha_prestamo: String!
+    fecha_devolucion: String!
+    detalle_devolucion: String
+    cantidad_devuelta: Int!
+ }
+
  type Query {
     getUsuarios: [Usuario]
     getUsuario(id: ID!) : Usuario
@@ -132,6 +152,8 @@ const typeDefs = gql`
     getPrestamo: [Prestamo]
 
     getSolicitud: [Solicitud]
+
+    getDevolucion: [Devolucion]
  }
 
  type Mutation {
@@ -150,6 +172,10 @@ const typeDefs = gql`
     addSolicitud(input: SolicitudInput): Solicitud
     updateSolicitud(id: ID!, input: SolicitudInput): Solicitud
     deleteSolicitud(id: ID!): Alert
+
+    addDevolucion(input: DevolucionInput): Devolucion
+    updateDevolucion(id: ID!, input: DevolucionInput): Devolucion
+    deleteDevolucion(id: ID!): Alert
  }
 `;
 
@@ -184,6 +210,12 @@ const resolvers = {
         async getSolicitud(obj){
             const solicitudes = await Solicitud.find()
             return solicitudes;
+        },
+
+
+        async getDevolucion(obj){
+            const devoluciones = await Devolucion.find()
+            return devoluciones;
         },
     },
     Mutation: {
@@ -273,6 +305,36 @@ const resolvers = {
             await Solicitud.deleteOne({_id: id});
             return{
                 message: "Solicitud eliminada"
+            }
+        },
+
+
+        async addDevolucion(obj, { input }){
+            let inventarioBusq = Inventario.findById(input.inventario);
+            if(inventarioBusq==null){
+                return null;
+            }
+            let usuarioBusq = Usuario.findById(input.usuario);
+            if(usuarioBusq==null){
+                return null;
+            }
+            const devolucion = new Devolucion(
+                {usuario: usuarioBusq._id,
+                inventario: inventarioBusq._id,
+                fecha_prestamo: input.fecha_prestamo,
+                fecha_devolucion: input.fecha_devolucion,
+                detalle_devolucion: input.detalle_solicitud, cantidad_devuelta: input.cantidad_devuelta});
+            await devolucion.save();
+            return devolucion;
+        },
+        async updateDevolucion(obj, { input }){
+            const devolucion = await Devolucion.findByIdAndUpdate(id, input);
+            return devolucion;
+        },
+        async deleteDevolucion(obj, {id, input }){
+            await Devolucion.deleteOne({_id: id});
+            return{
+                message: "Devolucion eliminada"
             }
         },
     }
