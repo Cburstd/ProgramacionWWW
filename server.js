@@ -12,6 +12,7 @@ const { merge } = require('lodash');
 const Usuario = require('./models/usuario');
 const Inventario = require('./models/inventario');
 const Prestamo = require('./models/prestamos');
+const Solicitud = require('./models/solicitudes');
 
 mongoose.connect('mongodb+srv://User:UserPassword@cluster0.5pyuiq8.mongodb.net/bdwebmovil', {useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -72,6 +73,16 @@ const typeDefs = gql`
     estado: Int!
  }
 
+ type Solicitud{
+    id: ID!
+    usuario: Usuario!
+    inventario: Inventario!
+    fecha_solicitud: String!
+    detalle_solicitud: String
+    cantidad_solicitada: Int!
+    estado: Int!
+ }
+
  type Alert{
     message: String
  }
@@ -102,12 +113,25 @@ const typeDefs = gql`
     estado: Int!
  }
 
+ input SolicitudInput {
+    usuario: String!
+    inventario: String!
+    fecha_solicitud: String!
+    detalle_solicitud: String
+    cantidad_solicitada: Int!
+    estado: Int!
+ }
+
  type Query {
     getUsuarios: [Usuario]
     getUsuario(id: ID!) : Usuario
 
     getInventario: [Inventario]
     getProductoInventario(id: ID!) : Inventario
+
+    getPrestamo: [Prestamo]
+
+    getSolicitud: [Solicitud]
  }
 
  type Mutation {
@@ -122,6 +146,10 @@ const typeDefs = gql`
     addPrestamo(input: PrestamoInput): Prestamo
     updatePrestamo(id: ID!, input: PrestamoInput): Prestamo
     deletePrestamo(id: ID!): Alert
+
+    addSolicitud(input: SolicitudInput): Solicitud
+    updateSolicitud(id: ID!, input: SolicitudInput): Solicitud
+    deleteSolicitud(id: ID!): Alert
  }
 `;
 
@@ -136,6 +164,7 @@ const resolvers = {
             return usuario;
         },
 
+
         async getInventario(obj){
             const inventario = await Inventario.find()
             return inventario;
@@ -143,7 +172,19 @@ const resolvers = {
         async getProductoInventario(obj, { id }){
             const inventario = await Inventario.findById(id);
             return inventario;
-        }
+        },
+
+
+        async getPrestamo(obj){
+            const prestamos = await Prestamo.find()
+            return prestamos;
+        },
+
+
+        async getSolicitud(obj){
+            const solicitudes = await Solicitud.find()
+            return solicitudes;
+        },
     },
     Mutation: {
         async addUsuario(obj, { input }){
@@ -203,6 +244,35 @@ const resolvers = {
             await Prestamo.deleteOne({_id: id});
             return{
                 message: "Prestamo eliminado"
+            }
+        },
+
+
+        async addSolicitud(obj, { input }){
+            let inventarioBusq = Inventario.findById(input.inventario);
+            if(inventarioBusq==null){
+                return null;
+            }
+            let usuarioBusq = Usuario.findById(input.usuario);
+            if(usuarioBusq==null){
+                return null;
+            }
+            const solicitud = new Solicitud(
+                {usuario: usuarioBusq._id,
+                inventario: inventarioBusq._id,
+                fecha_solicitud: input.fecha_prestamo,
+                detalle_solicitud: input.detalle_solicitud, cantidad_solicitada: input.cantidad_solicitada, estado: input.estado});
+            await solicitud.save();
+            return solicitud;
+        },
+        async updateSolicitud(obj, { input }){
+            const solicitud = await Solicitud.findByIdAndUpdate(id, input);
+            return solicitud;
+        },
+        async deleteSolicitud(obj, {id, input }){
+            await Solicitud.deleteOne({_id: id});
+            return{
+                message: "Solicitud eliminada"
             }
         },
     }
