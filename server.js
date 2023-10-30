@@ -120,6 +120,8 @@ const typeDefs = gql`
     deleteInventario(id: ID!) : Alert
 
     addPrestamo(input: PrestamoInput): Prestamo
+    updatePrestamo(id: ID!, input: PrestamoInput): Prestamo
+    deletePrestamo(id: ID!): Alert
  }
 `;
 
@@ -192,6 +194,16 @@ const resolvers = {
                 fecha_devolucion: input.fecha_devolucion, detalle_prestamo: input.detalle_prestamo, cantidad_solicitada: input.cantidad_solicitada, estado: input.estado});
             await prestamo.save();
             return prestamo;
+        },
+        async updatePrestamo(obj, { input }){
+            const prestamo = await Prestamo.findByIdAndUpdate(id, input);
+            return prestamo;
+        },
+        async deletePrestamo(obj, {id, input }){
+            await Prestamo.deleteOne({_id: id});
+            return{
+                message: "Prestamo eliminado"
+            }
         },
     }
 }
