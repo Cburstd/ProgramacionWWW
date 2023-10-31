@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 const reporteSchema = new mongoose.Schema( {
     usuarioId: {
         type: Schema.Types.ObjectId,
-        ref: 'usuario',
+        ref: 'Usuario',
         required: true
     },
     fecha_reporte: Date,
@@ -12,4 +13,4 @@ const reporteSchema = new mongoose.Schema( {
 
 });
 
-module.exports = mongoose.model('reporte', reporteSchema)
+module.exports = mongoose.model('Reporte', reporteSchema)

@@ -14,6 +14,7 @@ const Inventario = require('./models/inventario');
 const Prestamo = require('./models/prestamos');
 const Solicitud = require('./models/solicitudes');
 const Devolucion = require('./models/devoluciones');
+const Reporte = require('./models/reportes');
 
 mongoose.connect('mongodb+srv://User:UserPassword@cluster0.5pyuiq8.mongodb.net/bdwebmovil', {useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -45,7 +46,15 @@ mongoose.connect('mongodb+srv://User:UserPassword@cluster0.5pyuiq8.mongodb.net/b
 
  
 const typeDefs = gql`
- type Usuario{
+type Reporte{
+    id: ID!
+    usuarioId: String!
+    fecha_reporte: String!
+    tipo_reporte: Int!
+    descripcion: String
+ } 
+
+type Usuario{
     id: ID!
     nombre_usuario: String!
     n_solicitudes_pendientes: Int!
@@ -98,6 +107,13 @@ const typeDefs = gql`
     message: String
  }
 
+ input ReporteInput {
+    usuarioId: String!
+    fecha_reporte: String!
+    tipo_reporte: Int!
+    descripcion: String
+ }
+
  input UsuarioInput {
     nombre_usuario: String!
     n_solicitudes_pendientes: Int!
@@ -143,6 +159,9 @@ const typeDefs = gql`
  }
 
  type Query {
+    getReportes: [Reporte]
+    getReporte(id: ID!) : Reporte
+
     getUsuarios: [Usuario]
     getUsuario(id: ID!) : Usuario
 
@@ -157,6 +176,10 @@ const typeDefs = gql`
  }
 
  type Mutation {
+    addReporte(input: ReporteInput): Reporte
+    updateReporte(id: ID!, input: ReporteInput): Reporte
+    deleteReporte(id: ID!) : Alert
+
     addUsuario(input: UsuarioInput): Usuario
     updateUsuario(id: ID!, input: UsuarioInput): Usuario
     deleteUsuario(id: ID!) : Alert
@@ -181,6 +204,16 @@ const typeDefs = gql`
 
 const resolvers = {
     Query: {
+        async getReportes(obj){
+            const reportes = await Reporte.find()
+            return reportes;
+        },
+        async getReporte(obj, { id }){
+            const reporte = await Reporte.findById(id);
+            return reporte;
+        },
+
+
         async getUsuarios(obj){
             const usuarios = await Usuario.find()
             return usuarios;
@@ -219,6 +252,23 @@ const resolvers = {
         },
     },
     Mutation: {
+        async addReporte(obj, { input }){
+            const reporte = new Reporte(input);
+            await reporte.save();
+            return reporte;
+        },
+        async updateReporte(obj, { id, input}){
+            const reporte = await Reporte.findByIdAndUpdate(id, input);
+            return reporte;
+        },
+        async deleteReporte(obj, { id }){
+            await Reporte.deleteOne({_id: id});
+            return{
+                message: "Reporte eliminado"
+            }
+        },
+
+
         async addUsuario(obj, { input }){
             const usuario = new Usuario(input);
             await usuario.save();
