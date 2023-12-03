@@ -18,7 +18,7 @@ import PrestamoPage from '../pages/prestamo'
 
 const AppRouter = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/react'>
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/internal' element={<InternalPage />}  />
