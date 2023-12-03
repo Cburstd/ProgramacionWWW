@@ -27,7 +27,7 @@ function obtenerPerfiles() {
         console.log(response);
         let select = documen.getElementById('perfil');
         responde.data.getPerfiles.forEach((element)=>{
-          const opt = document.createElement('opntion');
+          const opt = document.createElement('option');
           opt.value = elemnt.id;
           opt.text = element.nombre;
           select.appendChild(opt);
