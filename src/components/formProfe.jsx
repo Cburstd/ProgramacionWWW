@@ -7,10 +7,14 @@ import Form from 'react-bootstrap/Form';
 
 function obtenerPerfiles() {
   let query = `
-    query miQuery{
-        getPerfiles{
+    query getUsuariosquery{
+        getUsuarios{
             id
-            nombre
+            nombre_usuario
+            n_solicitudes_pendientes
+            n_prestamos_actuales
+            n_devoluciones_hechas
+            n_solicitudes_validadas
         }
     }
   `;
@@ -25,11 +29,11 @@ function obtenerPerfiles() {
       }),
       success: function(response) {
         console.log(response);
-        let select = documen.getElementById('perfil');
-        responde.data.getPerfiles.forEach((element)=>{
+        let select = document.getElementById('usuario');
+        response.data.getPerfiles.forEach((element)=>{
           const opt = document.createElement('option');
           opt.value = element.id;
-          opt.text = element.nombre;
+          opt.text = element.nombre_usuario;
           select.appendChild(opt);
           console.log(element);
         });
