@@ -79,7 +79,7 @@ function Navbar({ userType = 'client' }) {
             Consultas
             </a>
             <ul className="dropdown-menu" aria-labelledby="clientDropdown">
-              <li><NavLink to="/prestamos" className="dropdown-item">Pr&eacute;stamo</NavLink></li>
+              <li><NavLink to="/prestamo" className="dropdown-item">Pr&eacute;stamo</NavLink></li>
               <li><NavLink to="/devolucion" className="dropdown-item">Devoluci&oacute;n</NavLink></li>
             </ul>
           </li>)} 

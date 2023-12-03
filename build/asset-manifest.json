@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/react/static/css/main.a77021ac.css",
+    "main.js": "/react/static/js/main.a5f59cc5.js",
+    "static/media/cc.png": "/react/static/media/cc.557db5905811555d0420.png",
+    "static/media/biblo.jpg": "/react/static/media/biblo.5fdde7184597d70f5a5e.jpg",
+    "static/media/saul.png": "/react/static/media/saul.f44c7726e6d2300aa2bf.png",
+    "static/media/contacto.jpg": "/react/static/media/contacto.7655026371f3876fe1a9.jpg",
+    "static/media/soon.png": "/react/static/media/soon.21df8121ae3cf8b32b78.png",
+    "static/media/HHMlogo.png": "/react/static/media/HHMlogo.648cfddc26899767cc98.png",
+    "index.html": "/react/index.html",
+    "main.a77021ac.css.map": "/react/static/css/main.a77021ac.css.map",
+    "main.a5f59cc5.js.map": "/react/static/js/main.a5f59cc5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a77021ac.css",
+    "static/js/main.a5f59cc5.js"
+  ]
+}

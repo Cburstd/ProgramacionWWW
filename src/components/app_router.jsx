@@ -15,6 +15,7 @@ import Perfil from '../pages/perfil'
 import Catalogo from '../pages/Catalogo'
 import DevolucionPage from '../pages/devolucion'
 import PrestamoPage from '../pages/prestamo'
+import ReportesPage from '../pages/reportes'
 
 const AppRouter = () => {
   return (
@@ -34,6 +35,7 @@ const AppRouter = () => {
         <Route path='/Analisis2' element={<AnalisisPage2 />} />
         <Route path='/mi-perfil' element={<Perfil />} />
         <Route path='/catalogo' element={<Catalogo />} />
+        <Route path='/reportes' element={<ReportesPage />} />
       </Routes>
     </BrowserRouter>
   )
