@@ -14,10 +14,27 @@ function obtenerPerfiles() {
         }
     }
   `;
-  $ .ajax({
+  $.ajax({
       type: "POST",
-      url: "localhost:8090"
-  })
+      url: "https://localhost:8090/graphql",
+      contentType: "application/json",
+      timeout: 15000,
+      data: JSON.stringify({
+        query: query,
+        variables: {}
+      }),
+      success: function(response) {
+        console.log(response);
+        let select = documen.getElementById('perfil');
+        responde.data.getPerfiles.forEach((element)=>{
+          const opt = document.createElement('opntion');
+          opt.value = elemnt.id;
+          opt.text = element.nombre;
+          select.appendChild(opt);
+          console.log(element);
+        });
+      }
+  });
 
   
 }
