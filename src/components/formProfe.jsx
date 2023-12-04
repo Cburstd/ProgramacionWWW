@@ -20,7 +20,7 @@ function obtenerPerfiles() {
   `;
   $.ajax({
       type: "POST",
-      url: "https://localhost:8090/graphql",
+      url: "http://localhost:8090/graphql",
       contentType: "application/json",
       timeout: 15000,
       data: JSON.stringify({
