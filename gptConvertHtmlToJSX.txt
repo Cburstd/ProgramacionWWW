@@ -1,0 +1,69 @@
+import React from 'react'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
+
+
+import React, { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+function BasicExampleProfe() {
+  const [usuarios, setUsuarios] = useState([]);
+
+  useEffect(() => {
+    obtenerPerfiles();
+  }, []);
+
+  function obtenerPerfiles() {
+    const query = `
+      query getUsuariosquery {
+        getUsuarios {
+          id
+          nombre_usuario
+          n_solicitudes_pendientes
+          n_prestamos_actuales
+          n_devoluciones_hechas
+          n_solicitudes_validadas
+        }
+      };`
+
+    fetch('http://localhost:8090/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: query,
+        variables: {},
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setUsuarios(data.data.getUsuarios);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }
+
+  return (
+    <div className="container mt-3">
+      <h2>Stacked form</h2>
+      <form action="/action_page.php">
+        <div className="mb-3 mt-3">
+          <label htmlFor="usuario">Usuario:</label>
+          <select id="usuario" name="usuario" className="form-select">
+            {usuarios.map((usuario) => (
+              <option key={usuario.id} value={usuario.id}>
+                {usuario.nombre_usuario}
+              </option>
+            ))}
+          </select>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+export default BasicExampleProfe;
