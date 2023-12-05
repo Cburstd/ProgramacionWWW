@@ -37,7 +37,7 @@ const AppRouter = () => {
         <Route path='/mi-perfil' element={<Perfil />} />
         <Route path='/catalogo' element={<Catalogo />} />
         <Route path='/reportes' element={<ReportesPage />} />
-        <Route path='/reportes2Get' element={<ReportesPage2 />} />
+        <Route path='/ApartadoUsuariosRevisarAñadir' element={<ReportesPage2 />} />
       </Routes>
     </BrowserRouter>
   )

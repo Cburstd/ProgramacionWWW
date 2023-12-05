@@ -72,6 +72,7 @@ function FormProfe() {
             </input>
         </div>
         <div className="form-group mb-3">
+            <label>N° SolicitudesPendientes</label>
             <input
               className="form-control"
               type="number" 
@@ -82,6 +83,7 @@ function FormProfe() {
             </input>
         </div>
         <div className="form-group mb-3">
+            <label>N° Prestamos Actuales</label>
             <input
               className="form-control"
               type="number" 
@@ -92,6 +94,7 @@ function FormProfe() {
             </input>
         </div>
         <div className="form-group mb-3">
+            <label>N° Devoluciones Hechas</label>
             <input
               className="form-control"
               type="number" 
@@ -103,6 +106,7 @@ function FormProfe() {
             </input>
         </div>
         <div className="form-group mb-3">
+            <label>N° Solicitudes Validadas</label>
             <input
               className="form-control"
               type="number" 

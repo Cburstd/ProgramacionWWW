@@ -87,7 +87,7 @@ function Navbar({ userType = 'client' }) {
             <li><NavLink to="/reportes" className="nav-link px-3 link-dark">Reportes</NavLink></li>
           )}
           {userType === 'client'&& (
-            <li><NavLink to="/reportes2Get" className="nav-link px-3 link-dark">Reportes2Get</NavLink></li>
+            <li><NavLink to="/ApartadoUsuariosRevisarAñadir" className="nav-link px-3 link-dark">Usuarios</NavLink></li>
           )}
         </ul>
 

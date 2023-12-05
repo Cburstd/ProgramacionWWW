@@ -12,6 +12,7 @@ export const ReportesPage2 = () => {
     <div className='page'>
       <h1 className='page__title'>Hamlin Hamlin & McGill</h1>
       <NavBar />
+      <FormProfe /> <br /><br /><br /><br /><br /><br />
       <FormProfeConsulta />
     </div>
 
