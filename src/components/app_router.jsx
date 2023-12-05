@@ -16,6 +16,7 @@ import Catalogo from '../pages/Catalogo'
 import DevolucionPage from '../pages/devolucion'
 import PrestamoPage from '../pages/prestamo'
 import ReportesPage from '../pages/reportes'
+import ReportesPage2 from '../pages/reportes2Get'
 
 const AppRouter = () => {
   return (
@@ -36,6 +37,7 @@ const AppRouter = () => {
         <Route path='/mi-perfil' element={<Perfil />} />
         <Route path='/catalogo' element={<Catalogo />} />
         <Route path='/reportes' element={<ReportesPage />} />
+        <Route path='/reportes2Get' element={<ReportesPage2 />} />
       </Routes>
     </BrowserRouter>
   )

@@ -86,6 +86,9 @@ function Navbar({ userType = 'client' }) {
           {userType === 'client'&& (
             <li><NavLink to="/reportes" className="nav-link px-3 link-dark">Reportes</NavLink></li>
           )}
+          {userType === 'client'&& (
+            <li><NavLink to="/reportes2Get" className="nav-link px-3 link-dark">Reportes2Get</NavLink></li>
+          )}
         </ul>
 
         <div className="d-flex align-items-center">

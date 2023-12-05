@@ -6,17 +6,16 @@ import pronto from '../assets/soon.png'
 import FormProfe from '../components/formProfe'
 import FormProfeConsulta from '../components/formProfeConsulta'
 
-export const ReportesPage = () => {
+export const ReportesPage2 = () => {
   
   return (
     <div className='page'>
       <h1 className='page__title'>Hamlin Hamlin & McGill</h1>
       <NavBar />
-      <FormProfe />
-      {/* <FormProfeConsulta /> */}
+      <FormProfeConsulta />
     </div>
 
   )
 }
 
-export default ReportesPage
+export default ReportesPage2
