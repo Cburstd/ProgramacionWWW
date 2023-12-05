@@ -48,7 +48,7 @@ mongoose.connect('mongodb+srv://User:UserPassword@cluster0.5pyuiq8.mongodb.net/b
 const typeDefs = gql`
 type Reporte{
     id: ID!
-    usuarioId: String!
+    usuario: Usuario
     fecha_reporte: String!
     tipo_reporte: Int!
     descripcion: String
@@ -108,7 +108,7 @@ type Usuario{
  }
 
  input ReporteInput {
-    usuarioId: String!
+    usuario: String!
     fecha_reporte: String!
     tipo_reporte: Int!
     descripcion: String
@@ -205,17 +205,17 @@ type Usuario{
 const resolvers = {
     Query: {
         async getReportes(obj){
-            const reportes = await Reporte.find()
+            const reportes = await Reporte.find().populate("usuario");
             return reportes;
         },
         async getReporte(obj, { id }){
-            const reporte = await Reporte.findById(id);
+            const reporte = await Reporte.findById(id).populate("usuario");
             return reporte;
         },
 
 
         async getUsuarios(obj){
-            const usuarios = await Usuario.find()
+            const usuarios = await Usuario.find();
             return usuarios;
         },
         async getUsuario(obj, { id }){
@@ -225,7 +225,7 @@ const resolvers = {
 
 
         async getInventario(obj){
-            const inventario = await Inventario.find()
+            const inventario = await Inventario.find();
             return inventario;
         },
         async getProductoInventario(obj, { id }){
@@ -235,19 +235,19 @@ const resolvers = {
 
 
         async getPrestamo(obj){
-            const prestamos = await Prestamo.find()
+            const prestamos = await Prestamo.find();
             return prestamos;
         },
 
 
         async getSolicitud(obj){
-            const solicitudes = await Solicitud.find()
+            const solicitudes = await Solicitud.find();
             return solicitudes;
         },
 
 
         async getDevolucion(obj){
-            const devoluciones = await Devolucion.find()
+            const devoluciones = await Devolucion.find();
             return devoluciones;
         },
     },
