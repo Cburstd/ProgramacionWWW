@@ -235,7 +235,7 @@ const resolvers = {
 
 
         async getPrestamo(obj){
-            const prestamos = await Prestamo.find().populate("usuario");
+            const prestamos = await Prestamo.find().populate("usuario").populate("inventario");
             return prestamos;
         },
 

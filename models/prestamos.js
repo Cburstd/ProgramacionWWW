@@ -10,8 +10,8 @@ const prestamoSchema = new mongoose.Schema( {
         type: Schema.Types.ObjectId,
         ref: 'Inventario',
       },
-    fecha_prestamo: Date,
-    fecha_devolucion: Date,
+    fecha_prestamo: String,
+    fecha_devolucion: String,
     detalle_prestamo: String,
     cantidad_solicitada: Number,
     estado: Number
