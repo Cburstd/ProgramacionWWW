@@ -5,12 +5,10 @@ const devolucionSchema = new mongoose.Schema( {
     usuario: {
         type: Schema.Types.ObjectId,
         ref: 'Usuario',
-        required: true
     },
     inventario: {
         type: Schema.Types.ObjectId,
         ref: 'Inventario',
-        required: true
       },
     fecha_prestamo: Date,
     fecha_devolucion: Date,

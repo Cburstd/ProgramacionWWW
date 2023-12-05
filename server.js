@@ -65,7 +65,7 @@ type Usuario{
 
  type Inventario{
     id: ID!
-    nombre_producto: String!
+    nombre: String
     categoria: Int!
     detalle_inventario: String
     cantidad_stock: Int!
@@ -74,8 +74,8 @@ type Usuario{
 
  type Prestamo{
     id: ID!
-    usuario: Usuario!
-    inventario: Inventario!
+    usuario: Usuario
+    inventario: Inventario
     fecha_prestamo: String!
     fecha_devolucion: String
     detalle_prestamo: String
@@ -85,8 +85,8 @@ type Usuario{
 
  type Solicitud{
     id: ID!
-    usuario: Usuario!
-    inventario: Inventario!
+    usuario: Usuario
+    inventario: Inventario
     fecha_solicitud: String!
     detalle_solicitud: String
     cantidad_solicitada: Int!
@@ -95,8 +95,8 @@ type Usuario{
 
  type Devolucion{
     id: ID!
-    usuario: Usuario!
-    inventario: Inventario!
+    usuario: Usuario
+    inventario: Inventario
     fecha_prestamo: String!
     fecha_devolucion: String!
     detalle_devolucion: String
@@ -123,7 +123,7 @@ type Usuario{
  }
 
  input InventarioInput {
-    nombre_producto: String!
+    nombre: String!
     categoria: Int!
     detalle_inventario: String
     cantidad_stock: Int!
@@ -235,7 +235,7 @@ const resolvers = {
 
 
         async getPrestamo(obj){
-            const prestamos = await Prestamo.find();
+            const prestamos = await Prestamo.find().populate("usuario");
             return prestamos;
         },
 
