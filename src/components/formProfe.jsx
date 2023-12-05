@@ -9,6 +9,10 @@ const registrarPerfil = async (nombre, nSolicitudesPendientes, nPrestamosActuale
         addUsuario(input: $input){
           id
           nombre
+          n_solicitudes_pendientes
+          n_prestamos_actuales
+          n_devoluciones_hechas
+          n_solicitudes_validadas
         }
       }
     `;
@@ -108,7 +112,7 @@ function FormProfe() {
             >
             </input>
         </div>
-        <div className="form-group mb-3">
+        <div className="form-group">
             <input
               className="form-control"
               type="submit"

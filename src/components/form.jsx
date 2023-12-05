@@ -1,6 +1,41 @@
-import React from 'react'
+import React, { useEffect ,useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import axios from 'axios' ;
+
+const registrarPerfil = async (nombre, nSolicitudesPendientes, nPrestamosActuales, nDevolucionesHechas, nSolicitudesValidadas) => {
+  const query = `
+    mutation miMutation($input : UsuarioInput){
+      addDevolucion(input: $input){
+        id
+        usuario: Usuario
+        inventario: Inventario
+        fecha_prestamo: String!
+        fecha_devolucion: String!
+        detalle_devolucion: String
+        cantidad_devuelta: Int!
+      }
+    }
+  `;
+  try{
+    const response = await axios.post('http://localhost:8090/graphql',{
+      query,
+      variables: {
+        input: {
+          usuario: usuario,
+          inventario: inventario,
+          fecha_prestamo: nPrestamosActuales,
+          fecha_devolucion: nDevolucionesHechas,
+          cantidad_devuelta: nSolicitudesValidadas
+        }
+      }
+    });
+    return response.data;
+  }catch(error){
+    console.error("Error al registrar el perfil", error);
+    throw error;
+  }
+};
 
 function BasicExample() {
   return (
@@ -11,10 +46,12 @@ function BasicExample() {
         
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Material</Form.Label>
-        <Form.Control type="text" placeholder="" />
-      </Form.Group>
+      <select class="form-select" aria-label="Default select example">
+        
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Herramienta</Form.Label>
