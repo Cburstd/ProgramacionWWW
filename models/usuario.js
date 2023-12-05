@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 }); */
 
 const usuarioSchema = new mongoose.Schema( {
-    nombre_usuario: String,
+    nombre: String,
     n_solicitudes_pendientes: Number,
     n_prestamos_actuales: Number,
     n_devoluciones_hechas: Number,

@@ -56,7 +56,7 @@ type Reporte{
 
 type Usuario{
     id: ID!
-    nombre_usuario: String!
+    nombre: String!
     n_solicitudes_pendientes: Int!
     n_prestamos_actuales: Int!
     n_devoluciones_hechas: Int!
@@ -115,7 +115,7 @@ type Usuario{
  }
 
  input UsuarioInput {
-    nombre_usuario: String!
+    nombre: String!
     n_solicitudes_pendientes: Int!
     n_prestamos_actuales: Int!
     n_devoluciones_hechas: Int!
