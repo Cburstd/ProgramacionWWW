@@ -1,40 +1,40 @@
-# frontend-sample-app
-Basic Frontend Development Environment to start an app with Webpack
-
-Cambios para la fila de Naipes(sidebar menu) Auspiciados por: https://www.youtube.com/watch?v=kgOgr3IRg-w
-
+# frontend-backend-sample-app
 This repo includes `Webpack` to start an environment to build frontend views using `React`.
 
 ### Requirements
 - Node >= 16.13.1
-- npm >= 8.1.2
 
 ### Quick start
 
-Install dependences
+Link al GitHub:https://github.com/Cburstd/ProgramacionWWW
 
-```
-npm install
-```
+Clonar 2 veces, por ejemplo:
+'/.../FrontEnd/ProgramacionWWW'
+'/.../BackEnd/ProgramacionWWW'
 
-Install react-bootstrap
+En VSCODE abrir 2 terminales, 
+.- la 1ra para quedarse en la rama "main"
+.- la 2da para hacer "git checkout nombre_de_la_rama"
 
-```
-npm install react-bootstrap bootstrap
-```
+en la 1ra consola ejecutar "npm install", y luego "npm start"
 
-Launch environment
+en la 2da consola ejecutar "npm start"
 
-```
-npm run dev
-```
+Ahora esta levantado tanto el Front como el Back.
 
-Now you can open http://localhost:5050
+QUERYS QUE SE INTEGRARON
+SI: (está el codigo y funciona la integracion)
+    AddReporte
+    AddUsuario
+    GetUsuario
+    GetInventario
+    
+Si-NO: (está el codigo pero no añade elemento, funciona en sandbox)
 
-### Packages included
-- [Webpack](https://webpack.js.org/)
-- [React Router](https://reactrouter.com/en/main)
-- [Material UI](https://mui.com/material-ui/getting-started/usage/)
-
-### About stylesheets
-- Sample stylesheets were written using the [BEM](https://getbem.com/) structure
+    AddDevolucion 
+    AddPrestamo
+    GetReportes
+    
+NO: (no está el codigo)
+    GetPrestamos
+    GetDevoluciones
