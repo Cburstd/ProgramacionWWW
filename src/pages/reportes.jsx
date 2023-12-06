@@ -3,8 +3,8 @@ import { Button } from '@mui/material'
 
 import NavBar from '../components/nav_bar'
 import pronto from '../assets/soon.png'
-import FormProfe from '../components/formProfe'
-import FormProfeConsulta from '../components/formProfeConsulta'
+import FormReporte from '../components/formReporte'
+import FormReporteGet from '../components/formReporteGet'
 
 export const ReportesPage = () => {
   
@@ -12,7 +12,9 @@ export const ReportesPage = () => {
     <div className='page'>
       <h1 className='page__title'>Hamlin Hamlin & McGill</h1>
       <NavBar />
-      <FormProfe />
+      <FormReporte /> <br /><br /><br /><br />
+      <FormReporteGet />
+      {/* <FormProfe /> */}
       {/* <FormProfeConsulta /> */}
     </div>
 

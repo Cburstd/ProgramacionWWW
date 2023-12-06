@@ -122,14 +122,14 @@ function FormPrestamo() {
     <div className="form-group row">
         <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Fecha de Devolución:</label>
         <div className="col-sm-2">
-        <input type="text" value={FechaDevolucion} onChange={(e)=> setFechaDevolucion(e.target.value)} className="form-control" id="inputEmail1" />
+        <input placeholder='00-00-0000' type="text" value={FechaDevolucion} onChange={(e)=> setFechaDevolucion(e.target.value)} className="form-control" id="inputEmail1" />
         </div>
     </div>
     <br/>
     <div className="form-group row">
         <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Fecha de Prestamo:</label>
         <div className="col-sm-2">
-        <input type="text" value={FechaPrestamo} onChange={(e)=> setFechaPrestamo(e.target.value)} className="form-control" id="inputEmail2" />
+        <input placeholder='00-00-0000' type="text" value={FechaPrestamo} onChange={(e)=> setFechaPrestamo(e.target.value)} className="form-control" id="inputEmail2" />
         </div>
     </div>
     <br/>

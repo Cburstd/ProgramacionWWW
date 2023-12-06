@@ -114,8 +114,12 @@ const registrarDevolucion = async (usuario2, inventario2, fecha_prestamo, fecha_
     mutation miMutation($input : DevolucionInput){
       addDevolucion(input: $input){
         id
-        usuario
-        inventario
+        usuario{
+          id
+        }
+        inventario{
+          id
+        }
         fecha_prestamo
         fecha_devolucion
         detalle_devolucion
@@ -139,7 +143,7 @@ const registrarDevolucion = async (usuario2, inventario2, fecha_prestamo, fecha_
     });
     return response.data;
   }catch(error){
-    console.error("Error al registrar el perfil", error);
+    console.error("Error al registrar la devolucion", error);
     throw error;
   }
 };
@@ -219,20 +223,17 @@ function BasicExample() {
         <select name="cmbPerfiles3" id="cmbPerfiles3" className="form-select" value={inventario2}
         onChange={(e)=> setInventario2(e.target.value)}>
             {
-                inventarios.map(usuario => (
-                    <option value={usuario.id}>{usuario.nombre}</option>
+                inventarios.map(inv => (
+                    <option value={inv.id}>{inv.nombre}</option>
                 ))
             }
         </select>
       </div>
       <div>
         <Form.Group className="mb-3 col-sm-3" controlId="formBasicPassword4">
-          
-            <Form.Label>Ingrese una fecha de Prestamo:</Form.Label>
-            <Form.Control type="text" placeholder="00-00-0000" value={fecha_prestamo}
-            onChange={(e)=> setFechaPrestamo(e.target.value)}/>
-          
-          
+          <Form.Label>Ingrese una fecha de Prestamo:</Form.Label>
+          <Form.Control type="text" placeholder="00-00-0000" value={fecha_prestamo}
+          onChange={(e)=> setFechaPrestamo(e.target.value)}/>
         </Form.Group>
       </div>
       <div>

@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios' ;
 
-const obtenerPerfiles = async () => {
+const obtenerUsuarios = async () => {
     const query = `
         query miQuery{
             getUsuarios{
@@ -27,20 +27,20 @@ const obtenerPerfiles = async () => {
 };
 
 function FormProfeConsulta() {
-    const [perfiles, setPerfiles] = useState([]);
+    const [usuarios, setUsuarios] = useState([]);
 
     useEffect(()=>{
-        obtenerPerfiles()
-            .then(data => setPerfiles(data));
+        obtenerUsuarios()
+            .then(data => setUsuarios(data));
     },[]);
 
   return (
     <div>
-        <h2>Lista Perfiles</h2>
+        <h2>Lista Usuarios</h2>
         <select name="cmbPerfiles" id="cmbPerfiles" className="form-select">
             {
-                perfiles.map(perfil => (
-                    <option value={perfil.id}>{perfil.nombre}</option>
+                usuarios.map(usuario => (
+                    <option value={usuario.id}>{usuario.nombre}</option>
                 ))
             }
         </select>
