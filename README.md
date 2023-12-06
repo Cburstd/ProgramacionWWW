@@ -30,7 +30,6 @@ SI: (está el codigo y funciona la integracion)
     GetInventario
     
 Si-NO: (está el codigo pero no añade elemento, funciona en sandbox)
-
     AddDevolucion 
     AddPrestamo
     GetReportes
