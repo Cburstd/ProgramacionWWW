@@ -247,7 +247,7 @@ const resolvers = {
 
 
         async getDevolucion(obj){
-            const devoluciones = await Devolucion.find();
+            const devoluciones = await Devolucion.find().populate("usuario").populate("inventario");
             return devoluciones;
         },
     },
