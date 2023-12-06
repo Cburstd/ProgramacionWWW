@@ -24,16 +24,16 @@ Ahora esta levantado tanto el Front como el Back.
 
 QUERYS QUE SE INTEGRARON
 SI: (está el codigo y funciona la integracion)
-    AddReporte
-    AddUsuario
-    GetUsuario
-    GetInventario
+ AddReporte
+ AddUsuario
+ GetUsuario
+ GetInventario
     
 Si-NO: (está el codigo pero no añade elemento, funciona en sandbox)
-    AddDevolucion 
-    AddPrestamo
-    GetReportes
+ AddDevolucion 
+ AddPrestamo
+ GetReportes
     
 NO: (no está el codigo)
-    GetPrestamos
-    GetDevoluciones
+ GetPrestamos
+ GetDevoluciones
